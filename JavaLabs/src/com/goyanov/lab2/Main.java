@@ -35,11 +35,10 @@ public class Main
 
         FileWriter writer = new FileWriter("src/output.txt");
         System.out.print("Чётные числа в стеке: ");
-        Iterator<Integer> iterator = nums.iterator();
         int sum = 0;
-        while (iterator.hasNext())
+        while (!nums.isEmpty())
         {
-            int num = iterator.next();
+            int num = nums.pop();
             sum += num;
             if (num % 2 == 0)
             {
