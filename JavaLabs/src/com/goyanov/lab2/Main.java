@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Stack;
 
 public class Main
@@ -23,19 +24,31 @@ public class Main
 
         Stack<Integer> nums = new Stack<>();
 
-        Arrays.stream(line.trim().split(" ")).map(Integer::parseInt).filter(num -> num > 0).forEach(nums::push);
+        for (String numString : line.trim().split(" "))
+        {
+            int num = Integer.parseInt(numString);
+            if (num > 0)
+            {
+                nums.push(num);
+            }
+        }
 
         FileWriter writer = new FileWriter("src/output.txt");
         System.out.print("Чётные числа в стеке: ");
-        nums.stream().filter(num -> num % 2 == 0).forEach(num ->
+        Iterator<Integer> iterator = nums.iterator();
+        int sum = 0;
+        while (iterator.hasNext())
         {
-            try {
+            int num = iterator.next();
+            sum += num;
+            if (num % 2 == 0)
+            {
+                System.out.print(num + "; ");
                 writer.write(num + " ");
-            } catch (IOException e) { e.printStackTrace(); }
-            System.out.print(num + "; ");
-        });
+            }
+        }
         writer.close();
 
-        System.out.println("\nОбщая сумма чисел в стеке: " + nums.stream().mapToInt(s -> s).sum());
+        System.out.println("\nОбщая сумма чисел в стеке: " + sum);
     }
 }
