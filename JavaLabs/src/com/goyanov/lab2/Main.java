@@ -3,7 +3,6 @@ package com.goyanov.lab2;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Stack;
 
