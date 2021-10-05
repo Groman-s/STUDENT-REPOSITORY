@@ -1,5 +1,5 @@
-JavaLabs/.idea/
-JavaLabs/*.class
-JavaLabs/target/
-JavaLabs/out/
-JavaLabs/*.iml
+*/.idea/
+*/*.class
+*/target/
+*/out/
+*/*.iml
