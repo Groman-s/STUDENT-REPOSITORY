@@ -35,21 +35,22 @@ public class Main
         inp.close();
 
         System.out.println("\nИнформация о группах, названия которых начинаются с '" + groupFirstLetter + "':");
-        if (groups.stream().map(Group::getName).noneMatch(name -> name.startsWith(groupFirstLetter)))
-        {
-            System.out.println("-- Таких групп нет!");
-            return;
-        }
+        boolean found = false;
         try (PrintStream fileWriter = new PrintStream("src/output.txt"))
         {
             System.out.println("=========================");
             System.out.println("Группа\t\tСредний балл");
             System.out.println("=========================");
-            groups.stream().filter(g -> g.getName().startsWith(groupFirstLetter)).forEach(g ->
+            for (Group group : groups)
             {
-                fileWriter.println(g.getName());
-                System.out.printf("%s\t\t%5.2f\n", g.getName(), g.getSrednBall());
-            });
+                if (group.getName().startsWith(groupFirstLetter))
+                {
+                    fileWriter.println(group.getName() + "," + group.getSrednBall());
+                    found = true;
+                    System.out.printf("%s\t\t%5.2f\n", group.getName(), group.getSrednBall());
+                }
+            }
+            if (!found) System.out.println("-- Таких групп нет!");
             System.out.println("=========================");
         }
     }
