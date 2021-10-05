@@ -47,7 +47,7 @@ public class Main
             System.out.println("=========================");
             groups.stream().filter(g -> g.getName().startsWith(groupFirstLetter)).forEach(g ->
             {
-                fileWriter.println(g.getName());
+                fileWriter.println(g.getName() + "," + g.getSrednBall());
                 System.out.printf("%s\t\t%5.2f\n", g.getName(), g.getSrednBall());
             });
             System.out.println("=========================");
