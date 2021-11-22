@@ -37,7 +37,14 @@ public class Main
             content[i] = new Object[]{pen[i].getName(), pen[i].getFabricator(), pen[i].getColor(), pen[i].isAutomatic() ? "да" : "нет", pen[i].getCost()};
         }
 
-        TableModel model = new DefaultTableModel(content, headers);
+        TableModel model = new DefaultTableModel(content, headers)
+        {
+            @Override
+            public Class<?> getColumnClass(int columnIndex)
+            {
+                return getValueAt(0, columnIndex).getClass();
+            }
+        };
         JTable table = new JTable(model);
         RowSorter<TableModel> sorter = new TableRowSorter<>(model);
         table.setRowSorter(sorter);
