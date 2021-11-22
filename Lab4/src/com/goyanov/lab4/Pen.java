@@ -11,9 +11,9 @@ public class Pen
     private String fabricator;
     private Color color;
     private boolean automatic;
-    private int cost;
+    private double cost;
 
-    public Pen(String name, String fabricator, Color color, boolean automatic, int cost)
+    public Pen(String name, String fabricator, Color color, boolean automatic, double cost)
     {
         this.name = name;
         this.fabricator = fabricator;
@@ -42,7 +42,7 @@ public class Pen
         return automatic;
     }
 
-    public int getCost()
+    public double getCost()
     {
         return cost;
     }
