@@ -2,6 +2,8 @@ package com.goyanov.lab4;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 
 public class Main
@@ -35,7 +37,10 @@ public class Main
             content[i] = new Object[]{pen[i].getName(), pen[i].getFabricator(), pen[i].getColor(), pen[i].isAutomatic() ? "да" : "нет", pen[i].getCost()};
         }
 
-        JTable table = new JTable(content, headers);
+        TableModel model = new DefaultTableModel(content, headers);
+        JTable table = new JTable(model);
+        RowSorter<TableModel> sorter = new TableRowSorter<>(model);
+        table.setRowSorter(sorter);
         table.setPreferredScrollableViewportSize(new Dimension(250,80));
         JScrollPane scrollPane = new JScrollPane(table);
 
