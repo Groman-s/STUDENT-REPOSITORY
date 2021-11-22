@@ -1,6 +1,7 @@
 package com.goyanov.lab4;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -9,6 +10,35 @@ import java.util.Arrays;
 
 public class Main
 {
+    static class CostRenderer extends DefaultTableCellRenderer
+    {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+        {
+            Double cost = (Double) table.getValueAt(row, column);
+            Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (cost > 50) component.setBackground(new Color(227, 38, 38));
+            else if (cost > 10) component.setBackground(new Color(239, 234, 127));
+            else component.setBackground(new Color(70, 183, 55));
+            return component;
+        }
+    }
+
+    static class ColorRenderer extends DefaultTableCellRenderer
+    {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+        {
+            Pen.Color color = (Pen.Color) table.getValueAt(row, column);
+            Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (color == Pen.Color.ЧЁРНЫЙ) component.setBackground(new Color(180, 180, 180));
+            else if (color == Pen.Color.СИНИЙ) component.setBackground(new Color(90, 202, 238));
+            else if (color == Pen.Color.КРАСНЫЙ) component.setBackground(new Color(255, 138, 138));
+            else  component.setBackground(new Color(143, 255, 115));
+            return component;
+        }
+    }
+
     public static void main(String[] args)
     {
         Pen[] pen = new Pen[10];
@@ -25,7 +55,7 @@ public class Main
 
         JFrame frame = new JFrame("Таблица ручек");
         frame.setSize(870, 280);
-        frame.setResizable(true);// TODO false
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel mainPanel = new JPanel();
@@ -57,6 +87,8 @@ public class Main
         table.setRowSorter(sorter);
         table.setPreferredScrollableViewportSize(new Dimension(250,80));
         JScrollPane scrollPane = new JScrollPane(table);
+        table.setDefaultRenderer(Double.class, new CostRenderer());
+        table.setDefaultRenderer(Pen.Color.class, new ColorRenderer());
 
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
