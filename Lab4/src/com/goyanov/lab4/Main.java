@@ -88,7 +88,7 @@ public class Main
         JButton clearButton = new JButton("Очистить");
         clearButton.addActionListener((event) ->
         {
-            Arrays.stream(functionalPanel.getComponents()).filter(e -> e instanceof JTextField).map(e -> (JTextField) e).forEach(e -> e.setText(""));
+            Arrays.stream(functionalPanel.getComponents()).filter(e -> e instanceof JTextField).map(JTextField.class::cast).forEach(e -> e.setText(""));
             automatic.setSelected(false);
         });
         functionalPanel.add(clearButton);
