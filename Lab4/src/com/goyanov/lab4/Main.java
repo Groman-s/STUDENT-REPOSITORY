@@ -81,7 +81,9 @@ public class Main
         JButton addButton = new JButton("Добавить");
         addButton.addActionListener((event)->
         {
-            model.addRow(new Object[]{name.getText(), fabricator.getText(), Pen.Color.valueOf(color.getText()), automatic.isSelected(), Double.parseDouble(cost.getText())});
+            try {
+                model.addRow(new Object[]{name.getText(), fabricator.getText(), Pen.Color.valueOf(color.getText().toUpperCase()), automatic.isSelected(), Double.parseDouble(cost.getText())});
+            } catch (Exception e) { System.out.println("Ошибка в переданных аргументах. Проверьте данные."); }
         });
         functionalPanel.add(addButton);
 
