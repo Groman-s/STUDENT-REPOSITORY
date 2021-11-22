@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
+import java.util.Arrays;
 
 public class Main
 {
@@ -34,15 +35,21 @@ public class Main
         Object[][] content = new Object[10][];
         for (int i = 0; i < pen.length; i++)
         {
-            content[i] = new Object[]{pen[i].getName(), pen[i].getFabricator(), pen[i].getColor(), pen[i].isAutomatic() ? "да" : "нет", pen[i].getCost()};
+            content[i] = new Object[]{pen[i].getName(), pen[i].getFabricator(), pen[i].getColor(), pen[i].isAutomatic(), pen[i].getCost()};
         }
 
-        TableModel model = new DefaultTableModel(content, headers)
+        DefaultTableModel model = new DefaultTableModel(content, headers)
         {
             @Override
             public Class<?> getColumnClass(int columnIndex)
             {
                 return getValueAt(0, columnIndex).getClass();
+            }
+
+            @Override
+            public boolean isCellEditable(int row, int column)
+            {
+                return false;
             }
         };
         JTable table = new JTable(model);
@@ -56,13 +63,35 @@ public class Main
         JPanel functionalPanel = new JPanel();
         functionalPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
 
-        functionalPanel.add(new JTextField(13));
-        functionalPanel.add(new JTextField(13));
-        functionalPanel.add(new JTextField(13));
-        functionalPanel.add(new Checkbox());
-        functionalPanel.add(new JTextField(5));
-        functionalPanel.add(new JButton("Добавить"));
-        functionalPanel.add(new JButton("Очистить"));
+        JTextField name = new JTextField(13);
+        functionalPanel.add(name);
+
+        JTextField fabricator = new JTextField(13);
+        functionalPanel.add(fabricator);
+
+        JTextField color = new JTextField(13);
+        functionalPanel.add(color);
+
+        JCheckBox automatic = new JCheckBox();
+        functionalPanel.add(automatic);
+
+        JTextField cost = new JTextField(5);
+        functionalPanel.add(cost);
+
+        JButton addButton = new JButton("Добавить");
+        addButton.addActionListener((event)->
+        {
+            model.addRow(new Object[]{name.getText(), fabricator.getText(), Pen.Color.valueOf(color.getText()), automatic.isSelected(), Double.parseDouble(cost.getText())});
+        });
+        functionalPanel.add(addButton);
+
+        JButton clearButton = new JButton("Очистить");
+        clearButton.addActionListener((event) ->
+        {
+            Arrays.stream(functionalPanel.getComponents()).filter(e -> e instanceof JTextField).map(e -> (JTextField) e).forEach(e -> e.setText(""));
+            automatic.setSelected(false);
+        });
+        functionalPanel.add(clearButton);
 
         mainPanel.add(functionalPanel, BorderLayout.SOUTH);
         frame.add(mainPanel);
