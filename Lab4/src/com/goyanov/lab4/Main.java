@@ -115,7 +115,9 @@ public class Main
         addButton.addActionListener((event)->
         {
             try {
-                model.addRow(new Object[]{name.getText(), fabricator.getText(), Pen.Color.valueOf(color.getText().toUpperCase()), automatic.isSelected(), Double.parseDouble(cost.getText())});
+                double costValue = Double.parseDouble(cost.getText());
+                if (costValue < 0) throw new Exception("Цена не может быть меньше 0.");
+                model.addRow(new Object[]{name.getText(), fabricator.getText(), Pen.Color.valueOf(color.getText().toUpperCase()), automatic.isSelected(), costValue});
             } catch (Exception e) { System.out.println("Ошибка в переданных аргументах. Проверьте данные."); }
         });
         functionalPanel.add(addButton);
