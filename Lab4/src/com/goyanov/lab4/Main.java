@@ -15,7 +15,7 @@ public class Main
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
         {
-            Double cost = (Double) table.getValueAt(row, column);
+            Double cost = (Double) value;
             Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             if (cost > 50) component.setBackground(new Color(227, 38, 38));
             else if (cost > 10) component.setBackground(new Color(239, 234, 127));
@@ -29,7 +29,7 @@ public class Main
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
         {
-            Pen.Color color = (Pen.Color) table.getValueAt(row, column);
+            Pen.Color color = (Pen.Color) value;
             Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             if (color == Pen.Color.ЧЁРНЫЙ) component.setBackground(new Color(180, 180, 180));
             else if (color == Pen.Color.СИНИЙ) component.setBackground(new Color(90, 202, 238));
@@ -85,9 +85,10 @@ public class Main
         JTable table = new JTable(model);
         RowSorter<TableModel> sorter = new TableRowSorter<>(model);
         table.setRowSorter(sorter);
-        table.setPreferredScrollableViewportSize(new Dimension(250,80));
         JScrollPane scrollPane = new JScrollPane(table);
-        table.setDefaultRenderer(Double.class, new CostRenderer());
+        CostRenderer costRenderer = new CostRenderer();
+        costRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        table.setDefaultRenderer(Double.class, costRenderer);
         table.setDefaultRenderer(Pen.Color.class, new ColorRenderer());
 
         mainPanel.add(scrollPane, BorderLayout.CENTER);
