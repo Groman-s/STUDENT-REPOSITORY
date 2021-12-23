@@ -89,6 +89,9 @@ public class ChangeTable implements TableModelListener
         tableModel = new MyTableModel(employers);
         tableModel.addTableModelListener(this);
         table = new JTable(tableModel);
+        table.setDefaultRenderer(Object.class, new Main.StringRenderer());
+        table.setDefaultRenderer(Integer.class, new Main.IntRenderer());
+        table.setDefaultRenderer(Boolean.class, new Main.BooleanRenderer());
 
         RowSorter<MyTableModel> sorter = new TableRowSorter<>((MyTableModel) tableModel);
         table.setRowSorter(sorter);
