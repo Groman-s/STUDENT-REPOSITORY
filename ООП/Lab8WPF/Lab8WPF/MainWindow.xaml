@@ -1,0 +1,44 @@
+﻿<Window x:Class="Lab8WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8WPF"
+        mc:Ignorable="d"
+        Title="Лабораторная 8 - Перегрузка операторов" Height="450" Width="800">
+    <Grid Background="#FFB9B9B9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="firstRadiusBox" HorizontalAlignment="Left" Margin="111,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="30" FontSize="18" TextChanged="firstRadiusBox_TextChanged"/>
+        <TextBox x:Name="secondRadiusBox" HorizontalAlignment="Left" Margin="111,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="30" Grid.Column="2" FontSize="18" TextChanged="secondRadiusBox_TextChanged"/>
+        <TextBlock x:Name="firstInfoArea" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Height="192" Width="202" Background="White"/>
+        <TextBlock x:Name="secondInfoArea" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Height="192" Width="202" Background="White"/>
+        <TextBlock x:Name="thirdInfoArea" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Height="192" Width="247" Background="White"/>
+        <Button x:Name="firstIncrementButton" Content="--" HorizontalAlignment="Center" Margin="0,257,0,0" VerticalAlignment="Top" Width="39" Click="firstIncrementButton_Click" Grid.Row="1" Height="32" Grid.RowSpan="2"/>
+        <Button x:Name="secondIncrementButton" Content="--" HorizontalAlignment="Center" Margin="0,257,0,0" VerticalAlignment="Top" Width="39" Grid.Column="2" Grid.Row="1" Height="32" Grid.RowSpan="2" Click="secondIncrementButton_Click"/>
+        <TextBox x:Name="firstHeightBox" HorizontalAlignment="Left" Margin="111,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="30" FontSize="18" TextChanged="firstHeightBox_TextChanged"/>
+        <TextBox x:Name="secondHeightBox" HorizontalAlignment="Left" Margin="111,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="30" Grid.Column="2" FontSize="18" TextChanged="secondHeightBox_TextChanged"/>
+        <Label x:Name="label" Content="Высота:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="30" Width="96" FontSize="18" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label_Copy" Content="Высота:" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="30" Width="96" FontSize="18" Grid.Column="2" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label_Copy1" Content="Радиус:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="41" Width="96" FontSize="18" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label_Copy2" Content="Радиус:&#xA;" HorizontalAlignment="Left" Margin="15,66,0,0" VerticalAlignment="Top" Height="40" Width="91" FontSize="18" Grid.Column="2" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label1" Grid.Column="3" Content="=" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Bottom" Width="25" Height="28" FontSize="18" Margin="0,0,0,131"/>
+        <Label x:Name="label2" Content="Цилиндр 1" HorizontalAlignment="Center" Margin="0,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="202" HorizontalContentAlignment="Center" FontSize="16"/>
+        <Label x:Name="label2_Copy" Content="Цилиндр 2" HorizontalAlignment="Center" Margin="0,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="202" HorizontalContentAlignment="Center" Grid.Column="2" FontSize="16"/>
+        <Button x:Name="plusButton" Content="+" HorizontalAlignment="Center" Margin="0,0,0,167" Grid.Row="1" VerticalAlignment="Bottom" Width="45" Height="35" Click="plusButton_Click" Grid.Column="1"/>
+        <Button x:Name="multiplyButton" Content="*" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Bottom" Width="45" Height="35" Click="multiplyButton_Click" Grid.Column="1" Margin="0,0,0,127"/>
+        <Button x:Name="compareButton" Content="&lt;&gt;" HorizontalAlignment="Center" Margin="0,0,0,87" Grid.Row="1" VerticalAlignment="Bottom" Width="45" Height="35" Click="compareButton_Click" Grid.Column="1"/>
+        <Label x:Name="label2_Copy1" Content="Результат операции" HorizontalAlignment="Center" Margin="0,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="202" HorizontalContentAlignment="Center" Grid.Column="4" FontSize="16"/>
+
+    </Grid>
+</Window>
