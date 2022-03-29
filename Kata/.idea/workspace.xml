@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b1144d9-f5f4-470e-b250-3a893f7bcd60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kata/com/goyanov/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kata/com/goyanov/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="8b1144d9-f5f4-470e-b250-3a893f7bcd60" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648054439823</updated>
       <workItem from="1648054441256" duration="2613000" />
+      <workItem from="1648133781306" duration="196000" />
     </task>
     <servers />
   </component>
