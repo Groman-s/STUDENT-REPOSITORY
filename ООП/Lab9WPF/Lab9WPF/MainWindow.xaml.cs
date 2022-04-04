@@ -19,7 +19,6 @@ namespace Lab9WPF
             rectangle.Fill = Brushes.Peru;
             rectangle.Margin = new Thickness(50, 20, 160, 144);
             MainWindow.mainWindowInstance.bottomHolst.Children.Add(rectangle);
-            MainWindow.mainWindowInstance.drawnShapes[0] = rectangle;
         }
 
         public void DrawDoor()
@@ -29,15 +28,12 @@ namespace Lab9WPF
             rectangle.Fill = Brushes.Peru;
             rectangle.Margin = new Thickness(130, 130, 60, 10);
             MainWindow.mainWindowInstance.upperHolst.Children.Add(rectangle);
-            MainWindow.mainWindowInstance.drawnShapes[1] = rectangle;
         }
     }
     public partial class MainWindow : Window
     {
         public static MainWindow mainWindowInstance;
         public static Goyanov goyanovInstance;
-
-        public Shape[] drawnShapes = new Shape[5];
 
         public delegate void Draw();
         public Draw draw;
@@ -58,7 +54,6 @@ namespace Lab9WPF
             rectangle.Fill = Brushes.Chocolate;
             rectangle.Margin = new Thickness(40, 90, 40, 10);
             mainWindowInstance.bottomHolst.Children.Add(rectangle);
-            mainWindowInstance.drawnShapes[2] = rectangle;
         }
         
         public static void DrawFacade() => drawFacadeMethod(); 
@@ -72,7 +67,6 @@ namespace Lab9WPF
             rectangle.Height = 30;
             rectangle.Margin = new Thickness(20, 90, 80, 10);
             mainWindowInstance.upperHolst.Children.Add(rectangle);
-            mainWindowInstance.drawnShapes[3] = rectangle;
         }
         
         public static void DrawRoof()
@@ -89,18 +83,14 @@ namespace Lab9WPF
             collection.Add(rightCorner);
             triangle.Points = collection;
             mainWindowInstance.upperHolst.Children.Add(triangle);
-            mainWindowInstance.drawnShapes[4] = triangle;
         }
         
         //================================================================================
         
         private void drawButton_Click(object sender, RoutedEventArgs e)
         {
-            upperHolst.Children.Remove(drawnShapes[4]);
-            upperHolst.Children.Remove(drawnShapes[3]);
-            upperHolst.Children.Remove(drawnShapes[1]);
-            bottomHolst.Children.Remove(drawnShapes[2]);
-            bottomHolst.Children.Remove(drawnShapes[0]);
+            upperHolst.Children.Clear();
+            bottomHolst.Children.Clear();
             if (draw != null) draw();
         }
         
