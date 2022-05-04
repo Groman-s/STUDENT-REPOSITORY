@@ -1,5 +1,5 @@
-function [ p ] = SMO_Kolmogorov
-    L = 3; mu = 2;
+function [ p ] = SMO_Kolmogorov;
+    L = 3; mu = 2; v = 1;
     
     dt = 0.01;
     T = 400;
@@ -8,8 +8,8 @@ function [ p ] = SMO_Kolmogorov
     Ap = [
         -L, mu, 0, 0;
         L, -(L+mu), 2*mu, 0;
-        0, L, -(L+2*mu), 3*mu;
-        0, 0, L, -(L+3*mu);
+        0, L, -(L+2*mu), 2*mu+v;
+        0, 0, L, -(2*mu+v);
     ];
     D = Ed+dt*Ap;
     p=zeros(Ns,T);

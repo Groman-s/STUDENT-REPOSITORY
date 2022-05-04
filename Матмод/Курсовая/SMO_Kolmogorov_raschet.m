@@ -3,14 +3,14 @@ function [ p, n, Ms, Mz, r, Potk, lotk, lneterp, q, A, Dneobsl, Dotk, ts, tog, t
     C1 = 300; C2 = 14; C3 = 25; C4 = 19; v = 1;
     
     dt = 0.01;
-    T = 400;
+    T = 1000;
     Ns = 4;
     Ed = eye(Ns);
     Ap = [
         -L, mu, 0, 0;
         L, -(L+mu), 2*mu, 0;
-        0, L, -(L+2*mu), 3*mu;
-        0, 0, L, -(L+3*mu);
+        0, L, -(L+2*mu), 2*mu+v;
+        0, 0, L, -(2*mu+v);
     ];
     D = Ed+dt*Ap;
     p=zeros(Ns,T);
