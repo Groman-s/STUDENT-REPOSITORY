@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roman\\Documents\\VisualStudio Projects\\Lab10WF\\Lab10WF\\Lab10WF.csproj",
+      "projectUniqueName": "C:\\Users\\Roman\\Documents\\STUDENT-REPOSITORY\\ООП\\Lab10WF\\Lab10WF\\Lab10WF.csproj",
       "projectName": "Lab10WF",
-      "projectPath": "C:\\Users\\Roman\\Documents\\VisualStudio Projects\\Lab10WF\\Lab10WF\\Lab10WF.csproj",
+      "projectPath": "C:\\Users\\Roman\\Documents\\STUDENT-REPOSITORY\\ООП\\Lab10WF\\Lab10WF\\Lab10WF.csproj",
       "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roman\\Documents\\VisualStudio Projects\\Lab10WF\\Lab10WF\\obj\\",
+      "outputPath": "C:\\Users\\Roman\\Documents\\STUDENT-REPOSITORY\\ООП\\Lab10WF\\Lab10WF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
